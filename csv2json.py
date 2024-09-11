@@ -29,7 +29,7 @@ def csv_to_json(csv_file_path, json_file_path):
         json.dump(data, json_file, indent=4, ensure_ascii=False)
 
 # 使用例
-csv_file_path = input('input filename')  # 変換したいCSVファイルのパス
-json_file_path = input('output filename')  # 出力するJSONファイルのパス
+csv_file_path = input('input filename: ')  # 変換したいCSVファイルのパス
+json_file_path = input('output filename: ')  # 出力するJSONファイルのパス
 
 csv_to_json(csv_file_path, json_file_path)
