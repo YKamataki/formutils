@@ -12,6 +12,10 @@ def normal_int_parse(s:str) -> int:
         return None
 
 def hours_and_minutes_parse(s:str) -> float:
+    try:
+        return float(s)
+    except ValueError:
+        pass
     # N時間またはNhの形式であればそれを返す
     m = re.search(r'(\d+)時間', s)
     if m:
