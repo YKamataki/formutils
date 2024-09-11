@@ -28,7 +28,7 @@ def hours_and_minutes_parse(s:str) -> float:
         return int(m.group(1)) / 60
     return None
 
-with open(SURVEY_FILE) as f:
+with open(SURVEY_FILE, encoding='utf-8') as f:
     survey = json.load(f)
 print("アンケートデータを読み込みました。")
 print("\tFILE:", SURVEY_FILE)

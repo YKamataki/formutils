@@ -4,7 +4,7 @@ import os
 INPUT_FILE = 'survey_ans.json'
 CONTACT_FILE = 'contacts.json'
 
-with open(INPUT_FILE) as f:
+with open(INPUT_FILE, encoding='utf-8') as f:
     survey = json.load(f)
 
 contacts = []
@@ -15,7 +15,7 @@ for entry in survey:
     person['email'] = entry['メール']
     contacts.append(person)
 
-with open(CONTACT_FILE, 'w') as f:
+with open(CONTACT_FILE, 'w', encoding='utf-8') as f:
     json.dump(contacts, f, ensure_ascii=False, indent=4)
 
 print('連絡先情報を保存しました。')
@@ -25,14 +25,7 @@ for entry in survey:
     del entry['メール']
     del entry['名前']
 
-with open(INPUT_FILE, 'w') as f:
+with open(INPUT_FILE, 'w', encoding='utf-8') as f:
     json.dump(survey, f, ensure_ascii=False, indent=4)
 
 print('個人情報を削除しました。')
-
-# パスワードで暗号化
-# GPGがない場合はコメントアウトしてください。
-# """"
-os.system('gpg -c ' + CONTACT_FILE)
-os.remove(CONTACT_FILE)
-# """"
